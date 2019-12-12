@@ -89,6 +89,7 @@ window.addEventListener("load", function() {
 			console.log("Connected !");
 			document.getElementById("connect").textContent = "Connected!";
 
+			var i = 0;
 			cubeBluetooth.addMoveListener(function(d) {
 				const latestMove = {
 					type: "move",
@@ -107,6 +108,9 @@ window.addEventListener("load", function() {
 					case "B": B(latestMove.amount); break;
 					default: break;
 				}
+
+				if(!latestMove.amount) document.getElementById("lastMove").innerHTML += ++i + ". " + latestMove.base + "\'<br>";
+				else document.getElementById("lastMove").innerHTML += ++i + ". " + latestMove.base + "<br>";
 
 				console.log(d);
 				timeStampedMoves.push({
