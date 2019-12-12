@@ -1,0 +1,53 @@
+h1
+{
+	color : red ; 
+	font-size: xx-large;
+	font-family: 'cac_champagneregular', Arial, Verdana, "Times New Roman", sans-serif;
+	font-style: normal;
+	font-weight: bold; 
+	text-align : center;
+	border: 3px red double;
+	border-radius: 10px; 
+	padding: 5px;
+}
+p
+{
+	color : black;
+	font-size: medium;
+	font-family: Arial, Verdana, "Times New Roman", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	text-align : justify;
+}
+ul
+{
+	display: flex;
+	flex-direction : row;
+	justify-content: space-around; 
+	color : black;
+	font-size: medium;
+	font-family: Arial, Verdana, "Times New Roman", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	text-align : justify;
+}
+div
+{
+	width: 20%;
+	margin: 20px;
+	text-align : center;
+}
+a:hover
+{
+	color: green;
+}
+a:visited
+{
+	color: red;
+}
+input
+{
+   width: 100px;
+   height: 20px;
+   text-align: center;
+}

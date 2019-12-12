@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<head>
+<title> Solve your cube </title>
+<style>
+    table
+    {
+        border-collapse: collapse;
+    }
+    td,th
+    {
+        border: 1px solid black;
+        text-align: center;
+    }
+    h1
+    {
+        color : red ; 
+        font-size: xx-large;
+        font-family: 'cac_champagneregular', Arial, Verdana, "Times New Roman", sans-serif;
+        font-style: normal;
+        font-weight: bold; 
+        text-align : center;
+        border: 3px red double;
+        border-radius: 10px; 
+        padding: 5px;
+    }
+    body 
+    {
+        padding: 4em;
+    }
+    #control
+    {
+        position: absolute;
+        top:550px;
+        height:250px; 
+    }
+    #control input[type="range"]
+    {
+        -webkit-appearance: textfield;
+        padding: 10px;
+        background-color: #333;
+        border: 2px inset;
+        cursor: auto;
+        height:15px;
+    }
+    #options
+    {
+        position:absolute;
+        top:1000px;
+    }
+    ul
+    {
+        display: flex;
+        flex-direction : row;
+        justify-content: space-around; 
+        color : black;
+    }
+    h3{
+        color : red ; 
+        font-size: xx-large;
+        font-family: 'cac_champagneregular', Arial, Verdana, "Times New Roman", sans-serif;
+        font-style: normal;
+        font-weight: bold; 
+        position: absolute;
+        top: 1030px;
+    }
+    #help
+    {
+        position: absolute;
+        top:1100px;
+        display: flex;
+        flex-direction : row;
+        justify-content: space-between; 
+        color : black;
+    }
+
+</style>
+<link rel="stylesheet" href="../css/rubik.css"></link>  
+<script src="../javascript/cubing.umd.js"></script>
+<script src="../javascript/index.js"></script>
+<script src="../javascript/yui-min.js"></script>
+<script src="../javascript/rubik-simple.js"></script>
+<script>
+YUI().use('node','rubik-simple',function(Y){
+    var cube = window.cube = new Y.Rubik();
+    cube._disabledFLick = true;
+    cube.run();    
+});
+</script>
+</head>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+<body>
+<header>
+    <h1>Solve your cube</h1>
+</header>
+        <div id="cube-container">
+            <div id="cube-viewport">
+                <div id="cube">
+                <!-- Face du haut (U) -->            
+                    <!-- Colonne de gauche (L)  -->               
+                    <div class="utl cubie up LM UE BS"><div><span>U1</span></div></div> 
+                    <div class="ucl cubie up LM UE CS"><div><span>U2</span></div></div>
+                    <div class="ubl cubie up LM UE FS"><div><span>U3</span></div></div>
+                    <!-- Colonne du centre (C)  -->            
+                    <div class="utc cubie up CM UE BS"><div><span>U4</span></div></div>
+                    <div class="ucc cubie up CM UE CS"><div><span>U5</span></div></div>
+                    <div class="ubc cubie up CM UE FS"><div><span>U6</span></div></div>
+                    <!-- Colonne de droite (R)  -->
+                    <div class="utr cubie up RM UE BS"><div><span>U7</span></div></div>
+                    <div class="ucr cubie up RM UE CS"><div><span>U8</span></div></div>
+                    <div class="ubr cubie up RM UE FS"><div><span>U9</span></div></div>
+                <!-- Fin face du haut -->  
+                <!-- Face de devant (F) -->
+                    <!-- Colonne de gauche (L)  -->                
+                    <div class="ftl cubie front LM UE FS"><div><span>F1</span></div></div>
+                    <div class="fcl cubie front LM CE FS"><div><span>F2</span></div></div>
+                    <div class="fbl cubie front LM DE FS"><div><span>F3</span></div></div>
+                    <!-- Colonne du centre (C)  -->            
+                    <div class="ftc cubie front CM UE FS"><div><span>F4</span></div></div>
+                    <div class="fcc cubie front CM CE FS"><div><span>F5</span></div></div>
+                    <div class="fbc cubie front CM DE FS"><div><span>F6</span></div></div>
+                    <!-- Colonne de droite (R)  -->
+                    <div class="ftr cubie front RM UE FS"><div><span>F7</span></div></div>
+                    <div class="fcr cubie front RM CE FS"><div><span>F8</span></div></div>
+                    <div class="fbr cubie front RM DE FS"><div><span>F9</span></div></div>
+                <!-- Fin face de devant -->
+                <!-- Face du bas (D) -->
+                    <!-- Colonne de gauche (L)  -->                
+                    <div class="dtl cubie down LM DE FS"><div><span>D1</span></div></div>
+                    <div class="dcl cubie down LM DE CS"><div><span>D2</span></div></div>
+                    <div class="dbl cubie down LM DE BS"><div><span>D3</span></div></div>
+                    <!-- Colonne du centre (C)  -->                
+                    <div class="dtc cubie down CM DE FS"><div><span>D4</span></div></div>
+                    <div class="dcc cubie down CM DE CS"><div><span>D5</span></div></div>
+                    <div class="dbc cubie down CM DE BS"><div><span>D6</span></div></div>
+                    <!-- Colonne de droite (R)  -->        
+                    <div class="dtr cubie down RM DE FS"><div><span>D7</span></div></div>
+                    <div class="dcr cubie down RM DE CS"><div><span>D8</span></div></div>
+                    <div class="dbr cubie down RM DE BS"><div><span>D9</span></div></div>
+                <!-- Fin face du bas -->
+                <!-- Face de derrière (B) -->    
+                    <!-- Colonne de gauche (L)  -->           
+                    <div class="btl cubie back LM DE BS"><div><span>B1</span></div></div>
+                    <div class="bcl cubie back LM CE BS"><div><span>B2</span></div></div>
+                    <div class="bbl cubie back LM UE BS"><div><span>B3</span></div></div>
+                    <!-- Colonne du centre (C)  -->           
+                    <div class="btc cubie back CM DE BS"><div><span>B4</span></div></div>
+                    <div class="bcc cubie back CM CE BS"><div><span>B5</span></div></div>
+                    <div class="bbc cubie back CM UE BS"><div><span>B6</span></div></div> 
+                    <!-- Colonne de droite (R)  -->    
+                    <div class="btr cubie back RM DE BS"><div><span>B7</span></div></div>
+                    <div class="bcr cubie back RM CE BS"><div><span>B8</span></div></div>
+                    <div class="bbr cubie back RM UE BS"><div><span>B9</span></div></div> 
+                <!-- Fin face de derrière --> 
+                <!-- Face de gauche (L) -->
+                    <!-- Colonne de gauche (L)  -->           
+                    <div class="ltl cubie left LM UE BS"><div><span>L1</span></div></div>
+                    <div class="lcl cubie left LM CE BS"><div><span>L2</span></div></div>
+                    <div class="lbl cubie left LM DE BS"><div><span>L3</span></div></div>
+                    <!-- Colonne du centre (C)  -->  
+                    <div class="ltc cubie left LM UE CS"><div><span>L4</span></div></div>
+                    <div class="lcc cubie left LM CE CS"><div><span>L5</span></div></div>
+                    <div class="lbc cubie left LM DE CS"><div><span>L6</span></div></div>
+                    <!-- Colonne de droite (R)  -->    
+                    <div class="ltr cubie left LM UE FS"><div><span>L7</span></div></div>
+                    <div class="lcr cubie left LM CE FS"><div><span>L8</span></div></div>
+                    <div class="lbr cubie left LM DE FS"><div><span>L9</span></div></div>
+                <!-- Fin face de gauche -->   
+                <!-- Face de droite (R) -->
+                    <!-- Colonne de gauche (L)  -->           
+                    <div class="rtl cubie right RM UE FS"><div><span>R1</span></div></div>
+                    <div class="rcl cubie right RM CE FS"><div><span>R2</span></div></div>
+                    <div class="rbl cubie right RM DE FS"><div><span>R3</span></div></div>
+                    <!-- Colonne du centre (C)  -->  
+                    <div class="rtc cubie right RM UE CS"><div><span>R4</span></div></div>
+                    <div class="rcc cubie right RM CE CS"><div><span>R5</span></div></div>
+                    <div class="rbc cubie right RM DE CS"><div><span>R6</span></div></div>
+                    <!-- Colonne de droite (R)  -->    
+                    <div class="rtr cubie right RM UE BS"><div><span>R7</span></div></div>
+                    <div class="rcr cubie right RM CE BS"><div><span>R8</span></div></div>
+                    <div class="rbr cubie right RM DE BS"><div><span>R9</span></div></div>
+                <!-- Fin face de droite -->  
+                 </div>
+            </div>
+        </div>
+    <h3><strong> If your Gocube is not connected: </strong></h3>
+    <br>
+    <br>
+    <div id ="help">
+        <table>
+            <caption><strong>Types of moves (press the corresponding touch to make a move)</strong></caption>
+            <tr>  
+                <th>u</th>
+                <th>U</th>
+                <th>d</th>
+                <th>D</th>
+                <th>f</th>
+                <th>F</th>
+                <th>b</th>
+                <th>B</th>
+                <th>l</th>
+                <th>L</th>
+                <th>r</th>
+                <th>R</th>
+            </tr>
+             <tr> 
+                <td><video width="150" height="150" src="../vidéo/umin.mp4" autoplay = true controls="controls"> </td>
+                <td><video width="150" height="150" src="../vidéo/U.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/dmin.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/D.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/fmin.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/F.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/bmin.mp4" autoplay = true  controls="controls"></video></td>
+                <td><video width="150" height="150" src="../vidéo/B.mp4" autoplay = true controls="controls"></video></td>
+                <td><video width="150" height="150" src="../vidéo/lmin.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/L.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/rmin.mp4" autoplay = true controls="controls"></td>
+                <td><video width="150" height="150" src="../vidéo/R.mp4" autoplay = true controls="controls"></td>
+            </tr>
+            <tr> 
+                <td>clockwise rotation of the up face</td>
+                <td>anti-clockwise rotation of the up face</td>
+                <td>clockwise rotation of the down face</td>
+                <td>anti-clockwise rotation of the down face</td>
+                <td>clockwise rotation of the front face</td>
+                <td>anti-clockwise rotation of the front face</td>
+                <td>clockwise rotation of the back face</td>
+                <td>anti-clockwise rotation of the back face</td>
+                <td>clockwise rotation of the left face</td>
+                <td>anti-clockwise rotation of the left face</td>
+                <td>clockwise rotation of the right face</td>
+                <td>anti-clockwise rotation of the right face</td>
+            </tr>
+        </table>
+    </div>
+    <div id = "options">
+    <ul> 
+    <div><a title = "Connect your Gocube!" target = "_blank"><button id = "connect">Connect</button></a></div>
+    <div><a title = "Solve your Gocube!" target = "_blank"><button id = "resolution">Resolution</button></a></div>
+    </ul>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+<div id="control">
+    <p>X: <input id="rx" type="range" max="360" min="0" value="0" onchange="rotate()"></p>
+    <p>Y: <input id="ry" type="range" max="360" min="0" value="130" onchange="rotate()"></p>
+    <p>Z: <input id="rz" type="range" max="360" min="0" value="130" onchange="rotate()"></p>
+    <p> Last move :<br><div id="lastMove"></div>Something :<div id="test"></div><br></p>
+<script>
+    function rotate(newX,newY,newZ){
+        var x = parseInt(document.querySelector('#rx').value,10) + (newX || 0),
+            y = parseInt(document.querySelector('#ry').value,10) + (newY || 0),
+            z = parseInt(document.querySelector('#rz').value,10) + (newY || 0),
+            cube = document.getElementById('cube');
+            cube.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
+            cube.style.MozTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
+    }
+    document.querySelector('#resolution').addEventListener("click", resol, false);
+    function resol(e){
+        cube._resolve();
+    }
+    document.addEventListener("keypress", function (e) {
+        var move = e.charCode
+        let command_move_keyboard = String.fromCharCode(move);
+        if(move && move!== 'on'){
+            cube._expectingTransition = true;
+            switch(command_move_keyboard){
+                case "u":
+                    cube._doMovement({face: "U", slice: "E",rotate: 'left'});
+                    break;
+                case "U":
+                    cube._doMovement({face: "U", slice: "E",rotate: 'right'});
+                    break;
+                case "d": 
+                    cube._doMovement({face: "D", slice: "E",rotate: 'left'});
+                    break;
+                case "D":
+                    cube._doMovement({face: "D", slice: "E",rotate: 'right'});
+                    break;
+                case "l":
+                    cube._doMovement({face: "L", slice: "M",rotate: 'left'});
+                    break;
+                case "L":
+                    cube._doMovement({face: "L", slice: "M",rotate: 'right'});
+                    break;
+                case "r":
+                    cube._doMovement({face: "R", slice: "M",rotate: 'left'});
+                    break;
+                case "R":
+                    cube._doMovement({face: "R", slice: "M",rotate: 'right'});
+                    break;
+                case "f":
+                    cube._doMovement({face: "F", slice: "S",rotate: 'left'});
+                    break;
+                case "F":
+                    cube._doMovement({face: "F", slice: "S",rotate: 'right'});
+                    break;
+                case "b":
+                    cube._doMovement({face: "B", slice: "S",rotate: 'left'});
+                    break;
+                case "B":
+                    cube._doMovement({face: "B", slice: "S",rotate: 'right'});
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+</script>
+</div>
+</body>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+</html>

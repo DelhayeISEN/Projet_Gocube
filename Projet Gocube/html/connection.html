@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- En-tête de la page -->
+		<meta charset = "UTF-8" />
+		<title> Connection du GoCubisen </title>
+		<link rel="stylesheet" href="C:\Users\Delhaye\Desktop\Projet Gocube\css\stylepage.css" />
+	</head>
+	<body>
+	<input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
+	 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        function goPython(){
+            $.ajax({
+              url: "test.py",
+             context: document.body
+            }).done(function() {
+             alert('finished python script');;
+            });
+        }
+    </script>
+</body></html>
+	<footer>
+	<nav>
+	<ul>
+		<div><a href ="C:\Users\Delhaye\Desktop\Projet Gocube\html\page.html"title = "Welcome page" target = "_blank"><input type="button" value="welcome"></a></div>
+		<div><a href ="C:\Users\Delhaye\Desktop\Projet Gocube\html\resolve.html"title = "Need help to solve your GoCube. Don't hesitate ;)" target = "_blank"><input type="button" value="Resolve"> </a></div>
+		<div><a href = "C:\Users\Delhaye\Desktop\Projet Gocube\html\mappy.html" title = "Interested in playing with your Gocube. Don't hesitate ;)" target = "_blank"><input type="button" value="Mappy"> </a></div>
+		<div><a href = "C:\Users\Delhaye\Desktop\Projet Gocube\html\about.html" title = "This is an About page" target = "_blank"> <input type="button" value="About"></a></div>
+	</ul>
+	</nav>
+</html>
