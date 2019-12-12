@@ -71,7 +71,7 @@
     }
 
     //Mapping table of the value given by the cube
-    const Bp = [l("Bleu horaire", 1), l("Bleu anti-horaire", -1), l("Vert horaire", 1), l("Vert anti-horaire", -1), l("Blanc horaire", 1), l("Blanc anti-horaire", -1), l("Jaune horaire", 1), l("Jaune anti-horaire", -1), l("Rouge horaire", 1), l("Rouge anti-horaire", -1), l("Orange horaire", 1), l("Orange anti-horaire", -1)];
+    const Bp = [l("B", 1), l("B", 0), l("F", 1), l("F", 0), l("U", 1), l("U", 0), l("D", 1), l("D", 0), l("R", 1), l("R", 0), l("L", 1), l("L", 0)];
     
     class GoCube extends BluetoothPuzzle {
         constructor(e, t) {
@@ -115,7 +115,6 @@
             });
             document.getElementById("lastMove").innerHTML = n.getMove().toString();
             console.log("LastMove: " + t.getUint8(3));
-            console.log("Something:")
         }
     }
 

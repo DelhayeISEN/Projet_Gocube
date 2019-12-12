@@ -81,13 +81,6 @@
 <script src="../javascript/index.js"></script>
 <script src="../javascript/yui-min.js"></script>
 <script src="../javascript/rubik-simple.js"></script>
-<script>
-YUI().use('node','rubik-simple',function(Y){
-    var cube = window.cube = new Y.Rubik();
-    cube._disabledFLick = true;
-    cube.run();    
-});
-</script>
 </head>
 <!--------------------------------------------------------------------------------------------------------------------------------------->
 <body>
@@ -243,71 +236,10 @@ YUI().use('node','rubik-simple',function(Y){
 </div>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
 <div id="control">
-    <p>X: <input id="rx" type="range" max="360" min="0" value="0" onchange="rotate()"></p>
-    <p>Y: <input id="ry" type="range" max="360" min="0" value="130" onchange="rotate()"></p>
-    <p>Z: <input id="rz" type="range" max="360" min="0" value="130" onchange="rotate()"></p>
-    <p> Last move :<br><div id="lastMove"></div>Something :<div id="test"></div><br></p>
-<script>
-    function rotate(newX,newY,newZ){
-        var x = parseInt(document.querySelector('#rx').value,10) + (newX || 0),
-            y = parseInt(document.querySelector('#ry').value,10) + (newY || 0),
-            z = parseInt(document.querySelector('#rz').value,10) + (newY || 0),
-            cube = document.getElementById('cube');
-            cube.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
-            cube.style.MozTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
-    }
-    document.querySelector('#resolution').addEventListener("click", resol, false);
-    function resol(e){
-        cube._resolve();
-    }
-    document.addEventListener("keypress", function (e) {
-        var move = e.charCode
-        let command_move_keyboard = String.fromCharCode(move);
-        if(move && move!== 'on'){
-            cube._expectingTransition = true;
-            switch(command_move_keyboard){
-                case "u":
-                    cube._doMovement({face: "U", slice: "E",rotate: 'left'});
-                    break;
-                case "U":
-                    cube._doMovement({face: "U", slice: "E",rotate: 'right'});
-                    break;
-                case "d": 
-                    cube._doMovement({face: "D", slice: "E",rotate: 'left'});
-                    break;
-                case "D":
-                    cube._doMovement({face: "D", slice: "E",rotate: 'right'});
-                    break;
-                case "l":
-                    cube._doMovement({face: "L", slice: "M",rotate: 'left'});
-                    break;
-                case "L":
-                    cube._doMovement({face: "L", slice: "M",rotate: 'right'});
-                    break;
-                case "r":
-                    cube._doMovement({face: "R", slice: "M",rotate: 'left'});
-                    break;
-                case "R":
-                    cube._doMovement({face: "R", slice: "M",rotate: 'right'});
-                    break;
-                case "f":
-                    cube._doMovement({face: "F", slice: "S",rotate: 'left'});
-                    break;
-                case "F":
-                    cube._doMovement({face: "F", slice: "S",rotate: 'right'});
-                    break;
-                case "b":
-                    cube._doMovement({face: "B", slice: "S",rotate: 'left'});
-                    break;
-                case "B":
-                    cube._doMovement({face: "B", slice: "S",rotate: 'right'});
-                    break;
-                default:
-                    break;
-            }
-        }
-    });
-</script>
+    <p>X: <input id="rx" type="range" max="360" min="0" value="0"></p>
+    <p>Y: <input id="ry" type="range" max="360" min="0" value="130"></p>
+    <p>Z: <input id="rz" type="range" max="360" min="0" value="130"></p>
+    <p> Last move :<br><div id="lastMove"></div></p>
 </div>
 </body>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
