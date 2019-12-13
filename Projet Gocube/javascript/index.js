@@ -43,14 +43,6 @@ window.addEventListener("load", function() {
 		cube.run();    
 	});
 
-	function rotate(newX,newY,newZ){
-		var x = parseInt(document.querySelector('#rx').value,10) + (newX || 0),
-		y = parseInt(document.querySelector('#ry').value,10) + (newY || 0),
-		z = parseInt(document.querySelector('#rz').value,10) + (newY || 0),
-		cube = document.getElementById('cube');
-		cube.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
-		cube.style.MozTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
-	}
 	document.querySelector('#resolution').addEventListener("click", resol, false);
 	function resol(e){
 		cube._resolve();
@@ -77,10 +69,6 @@ window.addEventListener("load", function() {
 			}
 		}
 	});
-
-	document.getElementById("rx").addEventListener("onchange", rotate());
-	document.getElementById("ry").addEventListener("onchange", rotate());
-	document.getElementById("rz").addEventListener("onchange", rotate());
 
 	document.getElementById("connect").addEventListener("click", function f() {
 		console.log("Connecting...");

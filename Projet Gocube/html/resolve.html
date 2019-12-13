@@ -38,7 +38,7 @@
 	#control input[type="range"]
 	{
 		-webkit-appearance: textfield;
-		padding: 1px;
+		padding: 10px;
 		background-color: #333;
 		border: 2px inset;
 		cursor: auto;
@@ -237,10 +237,20 @@
 	<p id="lastMove"></p>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
 <div id="control">
-	<p>X: <input id="rx" type="range" max="360" min="0" value="0"></p>
-	<p>Y: <input id="ry" type="range" max="360" min="0" value="130"></p>
-	<p>Z: <input id="rz" type="range" max="360" min="0" value="130"></p>
+	<p>X: <input id="rx" type="range" max="360" min="0" value="0" onchange="rotate()"></p>
+	<p>Y: <input id="ry" type="range" max="360" min="0" value="130" onchange="rotate()"></p>
+	<p>Z: <input id="rz" type="range" max="360" min="0" value="130" onchange="rotate()"></p>
 </div>
+<script>
+    function rotate(newX,newY,newZ){
+        var x = parseInt(document.querySelector('#rx').value,10) + (newX || 0),
+            y = parseInt(document.querySelector('#ry').value,10) + (newY || 0),
+            z = parseInt(document.querySelector('#rz').value,10) + (newY || 0),
+            cube = document.getElementById('cube');
+            cube.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
+            cube.style.MozTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg) rotateZ(" + z + "deg)";
+    }
+</script>
 </body>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
 </html>
