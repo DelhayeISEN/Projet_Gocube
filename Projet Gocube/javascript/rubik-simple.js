@@ -41,11 +41,6 @@ YUI.add('rubik-simple', function (Y) {
             "dcr":"bcr","dbr":"bbr","btr":"utr","bcr":"ucr","bbr":"ubr","rtl":"rbl","rcl":"rbc",
             "rbl":"rbr","rtc":"rcl","rcc":"rcc","rbc":"rcr","rtr":"rtl","rcr":"rtc","rbr":"rtr"
         },
-        'CM-right':{
-            "utc":"ftc","ucc":"fcc","ubc":"fbc","ftc":"dtc",
-            "fcc":"dcc","fbc":"dbc","dtc":"btc","dcc":"bcc",
-            "dbc":"bbc","btc":"utc","bcc":"ucc","bbc":"ubc"
-        },
 
         /* Mouvements des stickers horizontaux associés aux faces du haut et du bas */
 
@@ -53,11 +48,6 @@ YUI.add('rubik-simple', function (Y) {
             "ltl":"ftl","ltc":"ftc","ltr":"ftr","ftl":"rtl","ftc":"rtc","ftr":"rtr","rtl":"bbr",
             "rtc":"bbc","rtr":"bbl","bbr":"ltl","bbc":"ltc","bbl":"ltr","utl":"ubl","ucl":"ubc",
             "ubl":"ubr","utc":"ucl","ucc":"ucc","ubc":"ucr","utr":"utl","ucr":"utc","ubr":"utr"
-        },
-        'CE-right':{
-            "fcl":"rcl","fcc":"rcc","fcr":"rcr","lcl":"fcl",
-            "lcc":"fcc","lcr":"fcr","bcl":"lcr","bcc":"lcc",
-            "bcr":"lcl","rcl":"bcr","rcc":"bcc","rcr":"bcl"
         },
         'DE-right':{
             "fbl":"rbl","fbc":"rbc","fbr":"rbr","rbl":"btr","rbc":"btc","rbr":"btl","btr":"lbl",
@@ -71,11 +61,6 @@ YUI.add('rubik-simple', function (Y) {
             "ubl":"rtl","ubc":"rcl","ubr":"rbl","lbr":"ubl","lcr":"ubc","ltr":"ubr","dtl":"ltr",
             "dtc":"lcr","dtr":"lbr","rbl":"dtl","rcl":"dtc","rtl":"dtr","ftl":"ftr","fcl":"ftc",
             "fbl":"ftl","ftc":"fcr","fbc":"fcl","ftr":"fbr","fcr":"fbc","fbr":"fbl","fcc":"fcc"
-        },
-        'CS-right':{
-            "lbc":"ucl","lcc":"ucc","ltc":"ucr","dcl":"ltc",
-            "dcc":"lcc","dcr":"lbc","rbc":"dcl","rcc":"dcc",
-            "rtc":"dcr","ucr":"rbc","ucc":"rcc","ucl":"rtc"
         },
         'BS-right':{
             "utl":"rtr","utc":"rcr","utr":"rbr","rtr":"dbr","rcr":"dbc","rbr":"dbl","dbr":"lbl",
@@ -97,11 +82,6 @@ YUI.add('rubik-simple', function (Y) {
             "dcr":"fcr","dbr":"fbr","btr":"dtr","bcr":"dcr","bbr":"dbr","rtl":"rtr","rcl":"rtc",
             "rbl":"rtl","rtc":"rcr","rbc":"rcl","rtr":"rbr","rcr":"rbc","rbr":"rbl","rcc":"rcc"
         },
-        'CM-left':{
-            "utc":"btc","ucc":"bcc","ubc":"bbc","ftc":"utc",
-            "fcc":"ucc","fbc":"ubc","dtc":"ftc","dcc":"fcc",
-            "dbc":"fbc","btc":"dtc","bcc":"dcc","bbc":"dbc"
-        },
 
         /* Mouvements des stickers horizontaux associés aux faces du haut et du bas */
 
@@ -109,11 +89,6 @@ YUI.add('rubik-simple', function (Y) {
             "rtl":"ftl","rtc":"ftc","rtr":"ftr","ftl":"ltl","ftc":"ltc","ftr":"ltr","ltl":"bbr",
             "ltc":"bbc","ltr":"bbl","bbr":"rtl","bbc":"rtc","bbl":"rtr","utl":"utr","ucl":"utc",
             "ubl":"utl","utc":"ucr","ubc":"ucl","utr":"ubr","ucr":"ubc","ubr":"ubl","ucc":"ucc"
-        },
-        'CE-left':{
-            "fcl":"lcl","fcc":"lcc","fcr":"lcr","rcl":"fcl",
-            "rcc":"fcc","rcr":"fcr","bcl":"rcr","bcc":"rcc",
-            "bcr":"rcl","lcl":"bcr","lcc":"bcc","lcr":"bcl"
         },
         'DE-left':{
             "fbl":"lbl","fbc":"lbc","fbr":"lbr","lbl":"btr","lbc":"btc","lbr":"btl","btr":"rbl",
@@ -127,11 +102,6 @@ YUI.add('rubik-simple', function (Y) {
             "ubl":"lbr","ubc":"lcr","ubr":"ltr","lbr":"dtr","lcr":"dtc","ltr":"dtl","dtl":"rbl",
             "dtc":"rcl","dtr":"rtl","rbl":"ubr","rcl":"ubc","rtl":"ubl","ftl":"fbl","fcl":"fbc",
             "fbl":"fbr","ftc":"fcl","fcc":"fcc","fbc":"fcr","ftr":"ftl","fcr":"ftc","fbr":"ftr"
-        },
-        'CS-left':{
-            "ucl":"lbc","ucc":"lcc","ucr":"ltc","ltc":"dcl",
-            "lcc":"dcc","lbc":"dcr","dcl":"rbc","dcc":"rcc",
-            "dcr":"rtc","rbc":"ucr","rcc":"ucc","rtc":"ucl"
         },
         'BS-left':{
             "rtr":"utl","rcr":"utc","rbr":"utr","dbr":"rtr","dbc":"rcr","dbl":"rbr","lbl":"dbr",
