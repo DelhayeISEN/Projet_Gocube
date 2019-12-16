@@ -53,10 +53,10 @@ window.addEventListener("load", function() {
 		if(move && move!== 'on'){
 			cube._expectingTransition = true;
 			switch(command_move_keyboard){
-				case "u": U(0); break;
-				case "U": U(1); break;
-				case "d": D(1); break;
-				case "D": D(0); break;
+				case "u": U(1); break;
+				case "U": U(0); break;
+				case "d": D(0); break;
+				case "D": D(1); break;
 				case "l": L(1); break;
 				case "L": L(0); break;
 				case "r": R(0); break;
@@ -69,7 +69,6 @@ window.addEventListener("load", function() {
 			}
 		}
 	});
-
 	document.getElementById("connect").addEventListener("click", function f() {
 		console.log("Connecting...");
 		document.getElementById("connect").textContent = "Connecting...";

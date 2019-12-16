@@ -340,11 +340,203 @@ YUI.add('rubik-simple', function (Y) {
             this._cube.moves.push(m);
         },
 
+                /*
+        * La fonction suivante effectue une première optimisation simple des mouvements entrés par l'utilisateur
+        */
+       
+        _optimizeMoves:function (){
+            moves_updated = this._greaterOptimizeMoves();
+            this._cube.moves.length = 0;
+            this._cube.moves = moves_updated;
+            for (i=0; i<this._cube.moves.length; i++){
+                
+                if (i+2 < this._cube.moves.length){ // Pour vérifier qu'on ne sort pas de la liste
+                    if ((this._cube.moves[i].face == this._cube.moves[i+1].face) && (this._cube.moves[i].face == this._cube.moves[i+2].face) && (this._cube.moves[i].slice == this._cube.moves[i+1].slice) && (this._cube.moves[i].slice == this._cube.moves[i+2].slice) && (this._cube.moves[i].rotate == this._cube.moves[i+1].rotate) && (this._cube.moves[i].rotate == this._cube.moves[i+2].rotate)){ 
+                        this._cube.moves.splice(i+1,2);
+                        if(this._cube.moves[i].rotate == "left"){
+                            this._cube.moves[i].rotate = "right";
+                        }
+                        else{
+                            this._cube.moves[i].rotate = "left";
+                        }
+                    }
+                }
+                
+                if (i+1 < this._cube.moves.length){ // Pour vérifier qu'on ne sort pas de la liste
+                    if ((this._cube.moves[i].face == this._cube.moves[i+1].face) && (this._cube.moves[i].slice == this._cube.moves[i+1].slice) && (this._cube.moves[i].rotate != this._cube.moves[i+1].rotate)) {
+                        this._cube.moves.splice(i,2);
+                    }
+                }
+            }
+        },
+        
+        _greaterOptimizeMoves:function (){
+            moves_updated = [];
+            for (j=0; j<this._cube.moves.length; j++){
+                let pas = 1;
+                let compteurR = 0;
+                let compteurL = 0;
+                let compteurF = 0;
+                let compteurB = 0;
+                let compteurU = 0;
+                let compteurD = 0;
+                // Slice M
+                if (this._cube.moves[j].slice == "M"){
+                    while ((j+pas-1 < this._cube.moves.length) && (this._cube.moves[j+pas-1].slice == "M")){
+                        if(this._cube.moves[j+pas-1].face == "L"){
+                            if(this._cube.moves[j+pas-1].rotate == "right"){
+                                compteurL += 1;
+                                console.log("coucou");
+                            }
+                            else{
+                                compteurL -= 1;
+                            }
+                        }
+                        else if (this._cube.moves[j+pas-1].face == "R"){
+                            if(this._cube.moves[j+pas-1].rotate == "right"){
+                                compteurR += 1;
+                            }
+                            else{
+                                compteurR -= 1;
+                            }
+                        }
+                        pas += 1;
+                    compteurL = compteurL%4;
+                    compteurR = compteurR%4;
+                    }
+                    if (compteurL > 0){
+                        for (k=0; k<compteurL; k++){
+                            moves_updated.push({face:"L", slice:"M", rotate:"right"});
+                        }
+                    }
+                    else {
+                        for (k=0; k>compteurL; k--){
+                            moves_updated.push({face:"L", slice:"M", rotate:"left"});
+                        }
+                    }
+                    if (compteurR > 0){
+                        for (k=0; k<compteurR; k++){
+                            moves_updated.push({face:"R", slice:"M", rotate:"right"});
+                        }
+                    }
+                    else {
+                        for (k=0; k>compteurR; k--){
+                            moves_updated.push({face:"R", slice:"M", rotate:"left"});
+                        }
+                    }
+                }
+
+                // Slice S
+                else if (this._cube.moves[j].slice == "S"){
+                    while ((j+pas-1 < this._cube.moves.length) && (this._cube.moves[j+pas-1].slice == "S")){
+                        if(this._cube.moves[j+pas-1].face == "F"){
+                            if(this._cube.moves[j+pas-1].rotate == "right"){
+                                compteurF += 1;
+                            }
+                            else{
+                                compteurF -= 1;
+                            }
+                        }
+                        else if (this._cube.moves[j+pas-1].face == "B"){
+                            if(this._cube.moves[j+pas-1].rotate == "right"){
+                                compteurB += 1;
+                            }
+                            else{
+                                compteurB -= 1;
+                            }
+                        }
+                        pas += 1;
+                    compteurF = compteurF%4;
+                    compteurB = compteurB%4;
+                    }
+                    if (compteurF > 0){
+                        for (k=0; k<compteurF; k++){
+                            moves_updated.push({face:"F", slice:"S", rotate:"right"});
+                        }
+                    }
+                    else {
+                        for (k=0; k>compteurF; k--){
+                            moves_updated.push({face:"F", slice:"S", rotate:"left"});
+                        }
+                    }
+                    if (compteurB > 0){
+                        for (k=0; k<compteurB; k++){
+                            moves_updated.push({face:"B", slice:"S", rotate:"right"});
+                        }
+                    }
+                    else {
+                        for (k=0; k>compteurB; k--){
+                            moves_updated.push({face:"B", slice:"S", rotate:"left"});
+                        }
+                    }
+                }
+                
+
+                // Slice E
+                else if (this._cube.moves[j].slice == "E"){
+                    while ((j+pas-1 < this._cube.moves.length) && (this._cube.moves[j+pas-1].slice == "E")){
+                        if(this._cube.moves[j+pas-1].face == "U"){
+                            if(this._cube.moves[j+pas-1].rotate == "right"){
+                                compteurU += 1;
+                            }
+                            else{
+                                compteurU -= 1;
+                            }
+                        }
+                        else if (this._cube.moves[j+pas-1].face == "D"){
+                            if(this._cube.moves[j+pas-1].rotate == "right"){
+                                compteurD += 1;
+                            }
+                            else{
+                                compteurD -= 1;
+                            }
+                        }
+                        pas += 1;
+                    compteurU = compteurU%4;
+                    compteurD = compteurD%4;
+                    }
+                    if (compteurU > 0){
+                        for (k=0; k<compteurU; k++){
+                            moves_updated.push({face:"U", slice:"E", rotate:"right"});
+                        }
+                    }
+                    else {
+                        for (k=0; k>compteurU; k--){
+                            moves_updated.push({face:"U", slice:"E", rotate:"left"});
+                        }
+                    }
+                    if (compteurD > 0){
+                        for (k=0; k<compteurD; k++){
+                            moves_updated.push({face:"D", slice:"E", rotate:"right"});
+                        }
+                    }
+                    else {
+                        for (k=0; k>compteurD; k--){
+                            moves_updated.push({face:"D", slice:"E", rotate:"left"});
+                        }
+                    }
+                }
+                j += pas;
+                console.log("compteurR" + compteurR%4);
+                console.log("compteurL" + compteurL%4);
+                console.log("compteurF" + compteurF%4);
+                console.log("compteurB" + compteurB%4);
+                console.log("compteurU" + compteurU%4);
+                console.log("compteurD" + compteurD%4);
+            }
+            console.log("moves_updated" + moves_updated.length);
+            return moves_updated;
+        },
+
         _resolve:function () {
+            document.getElementById("resolution").textContent = "In progress...";
+            cube._optimizeMoves();
+            console.log(this._cube.moves);
             if (this._cube.moves.length != 0) {
-                document.getElementById("resolution").textContent = "in progress...";
                 var move = this._cube.moves.pop();
-                cube._expectingTransition = true;
+                /*
+                * Pour la résolution, nous effectuons les mouvements inverses de ceux entrés par l'utilisateur
+                */
                 if (move.rotate == "left"){
                     move.rotate = "right";
                 }
@@ -352,18 +544,19 @@ YUI.add('rubik-simple', function (Y) {
                     move.rotate = "left";
                 }
                 cube._doMovement(move);
-                this._moving = false;
+                //this._moving = false;
                 this._cube.moves.pop();
-                this._moving = true;
-                 if (this._cube.moves.length == 1) document.getElementById("in progress...").textContent = "Solved !";
+                //this._moving = true;
+                this._expectingTransition = true;
+                console.log(this._cube.moves);
             }
             else {
-                console.log("Solved !");
-                document.getElementById("resolution").textContent = "Solved ! ";
-   
+                console.log("Déjà résolu !");
+                document.getElementById("resolution").textContent = "Solved";
+                this._moving = false;
+                this._expectingTransition = true;
             }
         },
-
 
         _attachToPlane:function (list) {
             this._plane.setContent(list);
