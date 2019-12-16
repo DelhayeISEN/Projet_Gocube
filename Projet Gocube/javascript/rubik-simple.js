@@ -345,7 +345,7 @@ YUI.add('rubik-simple', function (Y) {
         */
        
         _optimizeMoves:function (){
-            moves_updated = this._greaterOptimizeMoves();
+            //moves_updated = this._greaterOptimizeMoves();
             this._cube.moves.length = 0;
             this._cube.moves = moves_updated;
             for (i=0; i<this._cube.moves.length; i++){
@@ -370,7 +370,7 @@ YUI.add('rubik-simple', function (Y) {
             }
         },
         
-        _greaterOptimizeMoves:function (){
+        /*_greaterOptimizeMoves:function (){
             moves_updated = [];
             for (j=0; j<this._cube.moves.length; j++){
                 let pas = 1;
@@ -386,7 +386,6 @@ YUI.add('rubik-simple', function (Y) {
                         if(this._cube.moves[j+pas-1].face == "L"){
                             if(this._cube.moves[j+pas-1].rotate == "right"){
                                 compteurL += 1;
-                                console.log("coucou");
                             }
                             else{
                                 compteurL -= 1;
@@ -470,8 +469,6 @@ YUI.add('rubik-simple', function (Y) {
                         }
                     }
                 }
-                
-
                 // Slice E
                 else if (this._cube.moves[j].slice == "E"){
                     while ((j+pas-1 < this._cube.moves.length) && (this._cube.moves[j+pas-1].slice == "E")){
@@ -526,7 +523,7 @@ YUI.add('rubik-simple', function (Y) {
             }
             console.log("moves_updated" + moves_updated.length);
             return moves_updated;
-        },
+        },*/
 
         _resolve:function () {
             document.getElementById("resolution").textContent = "In progress...";
