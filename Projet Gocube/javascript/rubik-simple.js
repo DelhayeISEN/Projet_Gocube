@@ -346,8 +346,8 @@ YUI.add('rubik-simple', function (Y) {
        
         _optimizeMoves:function (){
             //moves_updated = this._greaterOptimizeMoves();
-            this._cube.moves.length = 0;
-            this._cube.moves = moves_updated;
+            //this._cube.moves.length = 0;
+            //this._cube.moves = moves_updated;
             for (i=0; i<this._cube.moves.length; i++){
                 
                 if (i+2 < this._cube.moves.length){ // Pour vérifier qu'on ne sort pas de la liste
